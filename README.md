@@ -14,7 +14,7 @@
 
 ## What's Boss Bridge
 
-This project presents a simple bridge mechanism to move our ERC20 token from L1 to an L2.
+This project represents a simple bridge mechanism to move our ERC20 token from L1 to an L2.
 
 In a nutshell, the bridge allows users to deposit tokens, which are held into a secure vault on L1. Successful deposits trigger an event that our off-chain mechanism picks up, parses it and mints the corresponding tokens on L2.
 

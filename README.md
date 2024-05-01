@@ -14,8 +14,7 @@
 
 ## What's Boss Bridge
 
-This project presents a simple bridge mechanism to move our ERC20 token from L1 to an L2 we're building.
-The L2 part of the bridge is still under construction, so we don't include it here.
+This project presents a simple bridge mechanism to move our ERC20 token from L1 to an L2.
 
 In a nutshell, the bridge allows users to deposit tokens, which are held into a secure vault on L1. Successful deposits trigger an event that our off-chain mechanism picks up, parses it and mints the corresponding tokens on L2.
 
@@ -24,8 +23,6 @@ To ensure user safety, this first version of the bridge has a few security mecha
 - The owner of the bridge can pause operations in emergency situations.
 - Because deposits are permissionless, there's an strict limit of tokens that can be deposited.
 - Withdrawals must be approved by a bridge operator.
-
-We plan on launching `L1BossBridge` on both Ethereum Mainnet and ZKSync. 
 
 ## Boss Bridge Explained in a nutshell
 

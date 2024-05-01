@@ -35,8 +35,10 @@ To ensure user safety, this first version of the bridge has a few security mecha
 The `L1BossBridge.sol` contract has a substantial role and a few capabilities. It can pause and unpause, illustrating some centralized power. Most crucially, it permits users to deposit tokens to L2 and withdraw tokens from the L2 back to the L1.
 
 ```javascript
-function sendToL2(address _l2Delegate, address _token, uint256 _amount, uint256 _l2Gas, bytes calldata _data) external whenNotPaused returns (bytes memory){
-    // (...rest of code...)
+function sendToL2(address _l2Delegate, address _token, uint256 _amount, uint256 _l2Gas,
+                  bytes calldata _data) external
+                  whenNotPaused returns (bytes memory){
+      // (...rest of code...)
 }
 ```
 

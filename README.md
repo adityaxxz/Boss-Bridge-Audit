@@ -30,7 +30,7 @@ To ensure user safety, this first version of the bridge has a few security mecha
 <img src = "audit-data/diagrams/Boss-Bridge.png" width=850>
 <br/>
 
-### <u>Main Contract</u>
+### <ins>Main Contract</ins>
 
 The `L1BossBridge.sol` contract has a substantial role and a few capabilities. It can pause and unpause, illustrating some centralized power. Most crucially, it permits users to deposit tokens to L2 and withdraw tokens from the L2 back to the L1.
 
@@ -44,7 +44,7 @@ function sendToL2(address _l2Delegate, address _token, uint256 _amount, uint256 
 
 The `sendToL2()` function deposits token to L2. Once tokens are sent, they are locked into `L1Vault.sol`. This vault is relatively simple and doesn't really do much other than holding onto the L1 tokens approved by the Boss Bridge.
 
-### <u>How Tokens Travel Between Layers</u>
+### <ins>How Tokens Travel Between Layers</ins>
 
 - Tokens are sent to a vault on the *L1* , effectively locking them.
 - A centralized off-chain service AKA **Boss Bridge**, signals the release of an equivalent number of tokens on the *L2*.
@@ -53,9 +53,9 @@ The `sendToL2()` function deposits token to L2. Once tokens are sent, they are l
 - Centralized signers approve the unlocking of the original tokens on the *L1* side, completing the transfer process.
 
 
-### <u>The Key Role of Signers</u>
+### <ins>The Key Role of Signers</ins>
 
 So these Signers are important because they see who's depositing to either layer and decide when to unlock or relock tokens. As valuable as this function is, it is also an embedded known issue with the protocol due to its centralized nature.
 Once a token in L1 gets locked in the vault, it's liberated to roam in L2. Reversibly, when you lock it back into the L2 vault, Signers get a signal, and the tokens from L1 vault are released.
 
-**<u>Some of my personal notes [here](./.notes.md)**</u>
+**<ins>Some of my personal notes [here](./.notes.md)**</ins>

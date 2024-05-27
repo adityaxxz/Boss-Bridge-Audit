@@ -2,7 +2,7 @@
 
 ### [H-1] if a user approves the bridge, any other user can steal their funds using `L1BossBridge::depositTokensToL2`
 
-**Description:** if a user approve a token then calls the bridge , the user is about the send a transaction to call `depositTokensToL2` , And then if an attacker calls `depositTokensToL2(from: user, l2Recipient: attacker, amount: all her funds)` , since user approve this contract , if attcker calls the `safeTranferFrom` it will pass.
+**Description:** if a user approve a token then calls the bridge , the user is about the send a transaction to call `depositTokensToL2` , And then if an attacker calls `depositTokensToL2(from: user, l2Recipient: attacker, amount: all the funds)` , since user approve this contract , if attacker calls the `safeTransferFrom` it will pass.
 
 **Impact:** Due to this, the event `Deposit` would be emited wrong since an off-chain service picks up this event and mints the corresponding tokens on L2 and hence all the funds from the user will be stolen on L2.
 
@@ -31,7 +31,7 @@ function testCanMoveApprovedTokensOfOtherUsers() public {
 ```
 
 
-**Recommended Mitigation:** Consider modifying the depositTokensToL2 function so that the caller *cannot* specify a `from` address.
+**Recommended Mitigation:** Consider modifying the `depositTokensToL2` function so that the caller *cannot* specify a `from` address.
 
 ```diff
 
